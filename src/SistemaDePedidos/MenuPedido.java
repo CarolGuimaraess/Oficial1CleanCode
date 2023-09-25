@@ -39,16 +39,11 @@ public class MenuPedido {
 		}
 	}
 
-	// Encerra o programa.
 	public void encerrarPrograma() {
 		System.out.println("Saindo do sistema.");
 		System.exit(0);
 	}
 
-	/**
-	 * Lê uma escolha válida do usuário a partir da entrada padrão e a retorna como
-	 * uma opção de menu.
-	 */
 	private OpcaoMenu lerEscolhaDoUsuario() {
 		while (true) {
 			try {
@@ -79,13 +74,11 @@ public class MenuPedido {
 		}
 	}
 
-	// Cria um novo pedido e adiciona à lista de pedidos.
 	public void criarPedido() {
 		pedidos.add(new Pedido());
 		System.out.println("Pedido criado.");
 	}
 
-	// Adiciona um item ao pedido atual.
 	public void adicionarItemPedido() {
 		if (!temPedidoAtual()) {
 			System.out.println("Crie um pedido primeiro.");
@@ -103,17 +96,16 @@ public class MenuPedido {
 			ultimoPedido.adicionarItem(item);
 			System.out.println("Item adicionado ao pedido.");
 
-			scanner.nextLine(); // Limpar entrada inválida.
+			scanner.nextLine();
 		} else {
 			// Exibe uma mensagem de erro se a entrada do preço do item for inválida
 			System.out.println("Entrada inválida para o preço do item. "
 					+ "Só é permitido número positivo e utilize vírgula (,) para valores decimais.");
-			scanner.nextLine(); // Limpar entrada inválida.
+			scanner.nextLine();
 		}
 
 	}
 
-	// Calcula e exibe o total do pedido atual.
 	public void calcularTotalDoPedido() {
 		if (!temPedidoAtual()) {
 			System.out.println("Crie um pedido primeiro.");
@@ -125,7 +117,6 @@ public class MenuPedido {
 		System.out.println("Total do pedido: " + total);
 	}
 
-	// Lista os itens do pedido atual.
 	public void listarItensDoPedido() {
 		if (!temPedidoAtual()) {
 			System.out.println("Crie um pedido primeiro.");
@@ -140,7 +131,6 @@ public class MenuPedido {
 		}
 	}
 
-	// Verifica se há um pedido.
 	private boolean temPedidoAtual() {
 		return !pedidos.isEmpty();
 	}
