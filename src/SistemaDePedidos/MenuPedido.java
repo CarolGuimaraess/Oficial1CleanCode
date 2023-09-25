@@ -14,7 +14,7 @@ public class MenuPedido {
 	}
 
 	// Método principal que inicia a interação do usuário com o sistema de pedidos.
-	// Esse Método chama todas as funções criada.
+	// Esse Método chama todas as funções criadas.
 	public void executarMenuPedidos() {
 		while (true) {
 			exibirMenu();
@@ -39,11 +39,16 @@ public class MenuPedido {
 		}
 	}
 
+	// Encerra o programa.
 	public void encerrarPrograma() {
 		System.out.println("Saindo do sistema.");
 		System.exit(0);
 	}
 
+	/**
+	 * Lê uma escolha válida do usuário a partir da entrada padrão e a retorna como
+	 * uma opção de menu.
+	 */
 	private OpcaoMenu lerEscolhaDoUsuario() {
 		while (true) {
 			try {
@@ -59,10 +64,10 @@ public class MenuPedido {
 				 * Exibe uma mensagem de erro quando o usuário fornece uma escolha que não
 				 * corresponde a nenhuma opção do menu
 				 */
-				System.out.println("Opção inválida. escolha uma opção do menu.");
+				System.out.println("Opção inválida. Escolha uma opção do menu.");
 			} catch (NumberFormatException e) {
 				// Exibe uma mensagem de erro se a entrada do usuário for diferente de número
-				System.out.println("Opção inválida. só é permitido número. escolha uma opção do menu");
+				System.out.println("Opção inválida. Só é permitido número. Escolha uma opção do menu.");
 			}
 		}
 	}
@@ -74,11 +79,13 @@ public class MenuPedido {
 		}
 	}
 
+	// Cria um novo pedido e adiciona à lista de pedidos.
 	public void criarPedido() {
 		pedidos.add(new Pedido());
 		System.out.println("Pedido criado.");
 	}
 
+	// Adiciona um item ao pedido atual.
 	public void adicionarItemPedido() {
 		if (!temPedidoAtual()) {
 			System.out.println("Crie um pedido primeiro.");
@@ -98,7 +105,7 @@ public class MenuPedido {
 
 			scanner.nextLine(); // Limpar entrada inválida.
 		} else {
-			// Exibe uma mensagem de erro se a entrada do usuário for inválida
+			// Exibe uma mensagem de erro se a entrada do preço do item for inválida
 			System.out.println("Entrada inválida para o preço do item. "
 					+ "Só é permitido número positivo e utilize vírgula (,) para valores decimais.");
 			scanner.nextLine(); // Limpar entrada inválida.
@@ -106,6 +113,7 @@ public class MenuPedido {
 
 	}
 
+	// Calcula e exibe o total do pedido atual.
 	public void calcularTotalDoPedido() {
 		if (!temPedidoAtual()) {
 			System.out.println("Crie um pedido primeiro.");
@@ -117,6 +125,7 @@ public class MenuPedido {
 		System.out.println("Total do pedido: " + total);
 	}
 
+	// Lista os itens do pedido atual.
 	public void listarItensDoPedido() {
 		if (!temPedidoAtual()) {
 			System.out.println("Crie um pedido primeiro.");
@@ -131,6 +140,7 @@ public class MenuPedido {
 		}
 	}
 
+	// Verifica se há um pedido.
 	private boolean temPedidoAtual() {
 		return !pedidos.isEmpty();
 	}
