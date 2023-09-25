@@ -20,14 +20,4 @@ public enum OpcaoMenu {
 		return descricao;
 	}
 
-	public static OpcaoMenu fromValor(int valor) {
-		for (OpcaoMenu opcao : values()) {
-			if (opcao.valor == valor) {
-				return opcao;
-			}
-		}
-
-		return OpcaoMenu.SAIR;
-	}
-
 }
